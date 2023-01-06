@@ -40,8 +40,7 @@ namespace ft
 
 			// empty container constructor (default constructor)
 			// Constructs an empty container, with no elements.
-			explicit vector (const allocator_type& alloc = allocator_type()){
-				(void)alloc;
+			explicit vector (const allocator_type& alloc = allocator_type()) : _alloc(alloc){
 				_data = NULL;
 				_size = 0;
 				_capacity = 0;
@@ -52,8 +51,8 @@ namespace ft
 			// size_type n (int) how many element will allocate
 			//value_type val (value type container will hold for example <int>)
 			// allocator_type refrence to allocator for manage memory
-			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()){
-				(void)alloc;
+			explicit vector (size_type n, const value_type& val = value_type(), const allocator_type& alloc = allocator_type()) : _alloc(alloc){
+				
 				_data = NULL;
 				_size = 0;
 				_capacity = 0;
@@ -62,8 +61,7 @@ namespace ft
 			// range constructor
 			// Constructs a container with as many elements as the range [first,last), with each element constructed from its corresponding element in that range, in the same order.
 			template <class InputIterator>
-			vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type(), typename enable_if<!is_integral<InputIterator>::value>::type* = 0){
-				(void)alloc;
+			vector (InputIterator first, InputIterator last, const allocator_type& alloc = allocator_type(), typename enable_if<!is_integral<InputIterator>::value>::type* = 0) : _alloc(alloc){
 				_data = NULL;
 				_size = 0;
 				_capacity = 0;

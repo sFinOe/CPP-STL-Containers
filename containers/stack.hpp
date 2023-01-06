@@ -28,7 +28,7 @@ namespace ft
 		
 		protected :
 				// container to hold the elements of the stack (vector)
-				container_type _container;
+				container_type c;
 
 		public :
 
@@ -36,48 +36,48 @@ namespace ft
 
 			// copy constructor (deep copy) new obj idenpendent from the old one
 			stack( const stack& other ){
-				_container = other._container;
+				c = other.c;
 			}
-			explicit stack(const container_type& ctnr = container_type()) : _container(ctnr) {} // if no argument is passed, the default constructor of the container is called (vector) create empty cntr
+			explicit stack(const container_type& ctnr = container_type()) : c(ctnr) {} // if no argument is passed, the default constructor of the container is called (vector) create empty cntr
 			//else the constructor of the container is called with the argument passed
 			// destructor
 			// we dont need to do anytging here because the container (vector) will be destroyed automatically
 			~stack() {}
 
 			stack& operator=( const stack& other ){
-				_container = other._container;
+				c = other.c;
 				return (*this);
 			}
 
-			container_type get_container() const{
-				return (_container);
+			container_type getc() const{
+				return (c);
 			}
 
 			/********* member functions *********/
 
 			// empty() returns whether the stack is empty: i.e. whether its size is zero.
 			bool empty() const{
-				return (_container.empty());
+				return (c.empty());
 			}
 			// size() returns the number of elements in the stack.
 			size_type size() const{
-				return (_container.size());
+				return (c.size());
 			}
 			// top() returns a reference to the top element in the stack.
 			reference top(){
-				return (_container.back());
+				return (c.back());
 			}
 			 // top() returns a reference to the top element in the stack.
 			const_reference top() const{
-				return (_container.back());
+				return (c.back());
 			}
 			// push() adds a new element at the top of the stack, above its current top element. The content of this new element is initialized to val.
 			void push(const value_type& val){
-				_container.push_back(val);
+				c.push_back(val);
 			}
 			// pop() removes the element on top of the stack, effectively reducing its size by one.
 			void pop(){
-				_container.pop_back();
+				c.pop_back();
 			}
 	};
 
